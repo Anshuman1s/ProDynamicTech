@@ -59,7 +59,7 @@ router.post('/', upload.single('resume'), async (req, res) => {
     return res.status(400).json({ error: 'Resume file is required' });
   }
 
-  const resumeUrl = `${process.env.CLIENT_URL}/uploads/${req.file.filename}`;
+  const resumeUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
 
   const submission = {
     name,
