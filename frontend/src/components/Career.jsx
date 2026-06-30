@@ -77,7 +77,7 @@ export default function Career() {
       // Ensure the loader stays active for at least 1500ms to show the upload progress transition
       const minLoaderDelay = new Promise((resolve) => setTimeout(resolve, 1500));
 
-      const apiCall = fetch('http://localhost:5000/api/career', {
+      const apiCall = fetch(`${import.meta.env.VITE_API_URL}/api/career`, {
         method: 'POST',
         body: submissionData,
       });

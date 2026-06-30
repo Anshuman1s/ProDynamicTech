@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import { 
   Lock, 
   Mail, 
@@ -61,10 +62,11 @@ export default function AdminDashboard() {
     setDashLoading(true);
     setDashError('');
     try {
-      const response = await fetch('http://localhost:5000/api/admin/submissions', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/admin/submissions`, {
         headers: {
           'x-admin-email': adminUser.email,
         },
+        body:JSON.stringify(data)
       });
       const data = await response.json();
       if (response.ok) {
