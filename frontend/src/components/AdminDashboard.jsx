@@ -66,7 +66,7 @@ export default function AdminDashboard() {
         headers: {
           'x-admin-email': adminUser.email,
         },
-        body:JSON.stringify(data)
+        // body:JSON.stringify(data)
       });
       const data = await response.json();
       if (response.ok) {
